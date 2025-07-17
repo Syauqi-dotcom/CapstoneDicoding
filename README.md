@@ -1,12 +1,22 @@
-# React + Vite
+# Jaga Sehat - BMI Calculator & Health Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplikasi web modern untuk menghitung BMI (Body Mass Index), mendapatkan saran kesehatan berbasis AI, dan fitur konsultasi kesehatan.
 
-Currently, two official plugins are available:
+## ✨ Fitur Utama
+- **Kalkulator BMI**: Hitung BMI dan dapatkan analisis status kesehatan.
+- **AI Health Recommendation**: Saran kesehatan otomatis berdasarkan hasil BMI.
+- **Chat with Doctor**: Fitur konsultasi (coming soon).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Cara Instalasi & Menjalankan
 
-## Expanding the ESLint configuration
+```bash
+# Clone repo
+git clone https://github.com/USERNAME/REPO.git
+cd REPO
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Install dependencies
+npm install
+
+# Jalankan aplikasi
+npm run dev
+```
