@@ -1,21 +1,23 @@
-# Jaga Sehat - BMI Calculator & Health Platform
+# Jaga Sehat - BMI Calculator & AI Health Platform
 
-Aplikasi web modern untuk menghitung BMI (Body Mass Index), mendapatkan saran kesehatan berbasis AI, dan fitur konsultasi kesehatan.
+Aplikasi web modern untuk menghitung BMI (Body Mass Index), mendapatkan saran kesehatan berbasis AI Groq, dan fitur konsultasi kesehatan.
 
 ## ✨ Fitur Utama
 - **Kalkulator BMI**: Hitung BMI dan dapatkan analisis status kesehatan.
-- **AI Health Recommendation**: Saran kesehatan otomatis berdasarkan hasil BMI.
-- **Chat with Doctor**: Fitur konsultasi (coming soon).
+- **AI Health Recommendation (Groq LLM)**: Saran kesehatan otomatis, personal, dan dinamis dari AI Groq.
 
 ## 🚀 Cara Instalasi & Menjalankan
 
 ```bash
 # Clone repo
-git clone https://github.com/Syauqi-dotcom/CapstoneDicoding.git
-cd CapstoneDicoding
+https://github.com/USERNAME/REPO.git
+cd REPO
 
 # Install dependencies
 npm install
+
+# Buat file .env dan isi dengan API key Groq Anda
+VITE_GROQ_API_KEY=isi_api_key_groq_anda
 
 # Jalankan aplikasi
 npm run dev

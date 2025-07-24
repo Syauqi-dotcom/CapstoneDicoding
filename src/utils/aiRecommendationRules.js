@@ -1,5 +1,3 @@
-// utils/aiRecommendationRules.js
-
 export function generateAIRecommendations(bmi, age, gender, height, weight) {
   const recommendations = {
     diet: [],
@@ -8,7 +6,6 @@ export function generateAIRecommendations(bmi, age, gender, height, weight) {
     goals: []
   };
 
-  // Diet Recommendations based on BMI category
   if (bmi < 18.5) {
     recommendations.diet = [
       "Tingkatkan asupan kalori dengan makanan sehat seperti kacang-kacangan, alpukat, dan minyak zaitun",
@@ -83,7 +80,6 @@ export function generateAIRecommendations(bmi, age, gender, height, weight) {
     ];
   }
 
-  // Age-based recommendations
   if (age < 30) {
     recommendations.lifestyle.push("Manfaatkan metabolisme cepat dengan olahraga intensif");
     recommendations.lifestyle.push("Fokus pada pembentukan kebiasaan sehat jangka panjang");
@@ -95,7 +91,6 @@ export function generateAIRecommendations(bmi, age, gender, height, weight) {
     recommendations.lifestyle.push("Konsultasi dokter sebelum memulai program olahraga baru");
   }
 
-  // Gender-based recommendations
   if (gender === 'male') {
     recommendations.lifestyle.push("Fokus pada latihan kekuatan untuk meningkatkan testosteron");
     recommendations.lifestyle.push("Target protein 1.6-2.2g per kg berat badan");
@@ -104,7 +99,6 @@ export function generateAIRecommendations(bmi, age, gender, height, weight) {
     recommendations.lifestyle.push("Perhatikan asupan kalsium dan vitamin D");
   }
 
-  // General lifestyle tips
   recommendations.lifestyle.push("Tidur 7-9 jam per malam untuk pemulihan optimal");
   recommendations.lifestyle.push("Kelola stress dengan meditasi atau yoga");
   recommendations.lifestyle.push("Monitor progress dengan jurnal makanan dan olahraga");

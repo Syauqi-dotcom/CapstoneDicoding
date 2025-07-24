@@ -33,15 +33,16 @@
   .form-group input,
   .form-group select {
     width: 100%;
-    padding: 18px 20px;
+    height: 56px;
+    font-size: 16px;
+    padding: 0 20px;
     border: 2px solid #e0e0e0;
     border-radius: 8px;
     background-color: #f8f9fa;
-    font-size: 16px;
     color: #333;
-    transition: border-color 0.3s ease;
     box-sizing: border-box;
     font-family: inherit;
+    transition: border-color 0.3s ease;
   }
   
  
@@ -57,20 +58,24 @@
   
   .input-with-arrows {
     position: relative;
+    display: block;
   }
   
   .input-with-arrows input {
-    padding-right: 50px;
+    height: 56px;
+    font-size: 16px;
+    padding-right: 70px; 
+    flex: unset;
   }
   
   .number-arrows {
     position: absolute;
     right: 8px;
-    top: 50%;
+    top: 40%;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 4px;
   }
   
   .arrow-btn {
@@ -140,12 +145,12 @@
   }
   
   .input-with-unit input {
-    padding-right: 100px; 
+    padding-right: 60px;
   }
   
   .input-with-unit span {
     position: absolute;
-    right: 50px; 
+    right: 32px;
     top: 50%;
     transform: translateY(-50%);
     color: #888;
@@ -156,12 +161,20 @@
   
   .input-with-unit .number-arrows {
     position: absolute;
-    right: 8px;
+    right: 6px;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
     gap: 2px;
+    z-index: 2;
+  }
+  
+  .input-with-unit .arrow-btn {
+    width: 22px;
+    height: 16px;
+    font-size: 10px;
+    padding: 0;
   }
   
   .submit-btn {
@@ -395,5 +408,117 @@
     font-size: 16px;
     color: #1f2937;
     font-weight: 600;
+  }
+  
+.groq-recommendation {
+  background: white;
+  margin-top: 24px;
+  padding: 28px 32px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(77, 71, 195, 0.07);
+  border-left: 4px solid #4D47C3;
+  color: #374151;
+  animation: fadeInGroq 0.4s ease;
+  white-space: pre-line;
+  word-break: break-word;
+    }
+.groq-recommendation h4 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  color: #4D47C3;
+      font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+    }
+.groq-recommendation h4 .emoji {
+  font-size: 1.6em;
+  margin-right: 6px;
+  vertical-align: middle;
+    }
+.groq-recommendation p {
+  margin: 0 0 10px 0;
+  font-size: 15px;
+  line-height: 1.8;
+  text-align: left;
+    }
+.groq-recommendation p:last-child {
+  margin-bottom: 0;
+    }
+@keyframes fadeInGroq {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+  @media (max-width: 1024px) {
+  .groq-recommendation {
+    padding: 20px 16px;
+    }
+}
+  @media (max-width: 768px) {
+  .groq-recommendation {
+    padding: 14px 8px;
+    font-size: 14px;
+  }
+  .groq-recommendation h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+}
+
+.groq-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 24px 0 0 0;
+  font-size: 16px;
+  color: #ec4899;
+  font-weight: 600;
+  min-height: 80px;
+  padding: 32px 0;
+  width: 100%;
+}
+.groq-spinner {
+  width: 22px;
+  height: 22px;
+  border: 3px solid #f8fafc;
+  border-top: 3px solid #ec4899;
+  border-radius: 50%;
+  animation: groq-spin 0.8s linear infinite;
+    }
+@keyframes groq-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+  @media (max-width: 600px) {
+  .input-with-unit input {
+    padding-right: 44px;
+  }
+  .input-with-unit span {
+    right: 22px;
+  }
+  .input-with-arrows input {
+    padding-right: 54px;
+  }
+  .input-with-arrows .unit-label {
+    right: 30px;
+  }
+}
+  .input-with-arrows .unit-label {
+    position: absolute;
+    right: 48px;
+    top: 40%;
+    transform: translateY(-50%);
+    color: #888;
+    font-weight: 500;
+    font-size: 15px;
+    height: 56px;
+    line-height: 56px;
+    min-width: 28px;
+    text-align: left;
+    pointer-events: none;
+    user-select: none;
   }
   

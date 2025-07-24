@@ -4,6 +4,7 @@ import ResultCard from './ResultCard';
 import AIRecommendations from './AIRecommendations';
 import { calculateBMI, getBMICategory } from '../../utils/bmi';
 import { generateAIRecommendations } from '../../utils/aiRecommendationRules';
+import { getGroqRecommendation } from '../../utils/groqApi';
 
 const BMICalculator = () => {
   const [gender, setGender] = useState('');
@@ -13,10 +14,15 @@ const BMICalculator = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [bmiResult, setBmiResult] = useState(null);
   const [aiRecommendations, setAiRecommendations] = useState(null);
+  const [groqRecommendation, setGroqRecommendation] = useState('');
+  const [loadingGroq, setLoadingGroq] = useState(false);
+  const [groqError, setGroqError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setGroqRecommendation('');
+    setGroqError('');
     try {
       const heightValue = parseFloat(height);
       const weightValue = parseFloat(weight);
@@ -39,7 +45,15 @@ const BMICalculator = () => {
         weight: weightValue
       });
       setAiRecommendations(aiRecs);
-      console.log({ gender, age: ageValue, height: heightValue, weight: weightValue, bmi });
+      setLoadingGroq(true);
+      try {
+        const groqResult = await getGroqRecommendation({ bmi, age: ageValue, gender, height: heightValue, weight: weightValue });
+        setGroqRecommendation(groqResult);
+      } catch (err) {
+        setGroqError('Gagal mendapatkan saran AI personal.');
+      } finally {
+        setLoadingGroq(false);
+      }
     } catch (error) {
       console.error('Error calculating BMI:', error);
       alert('Error calculating BMI. Please try again.');
@@ -51,6 +65,8 @@ const BMICalculator = () => {
   const resetCalculation = () => {
     setBmiResult(null);
     setAiRecommendations(null);
+    setGroqRecommendation('');
+    setGroqError('');
   };
 
   const incrementValue = (field, min = 1, max = 500, step = 1) => {
@@ -109,7 +125,7 @@ const BMICalculator = () => {
           </div>
           <div className="form-group">
             <label>INPUT HEIGHT</label>
-            <div className="input-with-unit">
+            <div className="input-with-arrows">
               <input 
                 type="number" 
                 value={height} 
@@ -120,16 +136,16 @@ const BMICalculator = () => {
                 step="0.1"
                 required 
               />
-              <span>CM</span>
               <div className="number-arrows">
                 <div className="arrow-btn up" onClick={() => incrementValue('height', 50, 300, 0.5)}>▲</div>
                 <div className="arrow-btn down" onClick={() => decrementValue('height', 50, 300, 0.5)}>▼</div>
               </div>
+              <span className="unit-label">CM</span>
             </div>
           </div>
           <div className="form-group">
             <label>INPUT WEIGHT</label>
-            <div className="input-with-unit">
+            <div className="input-with-arrows">
               <input 
                 type="number" 
                 value={weight} 
@@ -140,11 +156,11 @@ const BMICalculator = () => {
                 step="0.1"
                 required 
               />
-              <span>KG</span>
               <div className="number-arrows">
                 <div className="arrow-btn up" onClick={() => incrementValue('weight', 1, 500, 0.5)}>▲</div>
                 <div className="arrow-btn down" onClick={() => decrementValue('weight', 1, 500, 0.5)}>▼</div>
               </div>
+              <span className="unit-label">KG</span>
             </div>
           </div>
           <button 
@@ -168,8 +184,21 @@ const BMICalculator = () => {
           <ResultCard bmiResult={bmiResult} onClose={resetCalculation} />
         )}
 
-        {aiRecommendations && (
+        {/* {aiRecommendations && (
           <AIRecommendations aiRecommendations={aiRecommendations} />
+        )} */} 
+        {loadingGroq && (
+          <div className="groq-loading">
+            <span className="groq-spinner" />
+            <span>Meminta saran AI personal...</span>
+          </div>
+        )}
+        {groqError && <p style={{color: 'red'}}>{groqError}</p>}
+        {groqRecommendation && (
+          <div className="groq-recommendation">
+            <h4><span className="emoji">🤖</span> Saran AI Personal (Groq)</h4>
+            <p>{groqRecommendation}</p>
+          </div>
         )}
       </div>
     </div>
