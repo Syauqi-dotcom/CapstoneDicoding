@@ -5,6 +5,7 @@ import BMICalculator from './pages/BMICalculator/BMICalculator';
 import Home from './pages/Home/Home';
 import Chat from './pages/Chat/Chat';
 import Profile from './pages/Profile/Profile';
+import Admin from './pages/Admin/Admin';
 import Footer from './components/Footer/Footer';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -19,6 +20,7 @@ function App() {
             <Route path="/chat" element={<Chat />} />
             <Route path="/bmi" element={<BMICalculator />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/admin" element={<Admin />} />
           </Routes>
         </main>
         {/* <Footer /> */}

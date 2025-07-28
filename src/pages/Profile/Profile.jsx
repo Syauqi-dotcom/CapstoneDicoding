@@ -27,15 +27,15 @@ const Profile = () => {
     <div className="container">
       <div className="profileContent">
         <div className="avatarCol">
-          <img
-            src={profile.avatar}
-            alt="Avatar"
+      <img
+        src={profile.avatar}
+        alt="Avatar"
             className="avatar"
-          />
+      />
         </div>
         <div className="dataCol">
-          {edit ? (
-            <>
+      {edit ? (
+        <>
               <input name="name" value={form.name} onChange={handleChange} type="text" placeholder="Nama" />
               <input name="email" value={form.email} onChange={handleChange} type="email" placeholder="Email" />
               <input name="gender" value={form.gender} onChange={handleChange} type="text" placeholder="Gender" />
@@ -43,10 +43,10 @@ const Profile = () => {
               <div className="buttonRow">
                 <button onClick={handleSave}>Simpan</button>
                 <button onClick={() => setEdit(false)} style={{ background: '#eee', color: '#444' }}>Batal</button>
-              </div>
-            </>
-          ) : (
-            <>
+          </div>
+        </>
+      ) : (
+        <>
               <h2 className="name">{profile.name}</h2>
               <p className="email">{profile.email}</p>
               <p className="info">Gender: {profile.gender}</p>
@@ -54,8 +54,8 @@ const Profile = () => {
               <div className="buttonRow">
                 <button onClick={() => setEdit(true)} style={{ background: '#ec4899' }}>Edit Profil</button>
               </div>
-            </>
-          )}
+        </>
+      )}
         </div>
       </div>
     </div>

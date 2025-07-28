@@ -10,8 +10,8 @@ Aplikasi web modern untuk menghitung BMI (Body Mass Index), mendapatkan saran ke
 
 ```bash
 # Clone repo
-https://github.com/USERNAME/REPO.git
-cd REPO
+git clone https://github.com/Syauqi-dotcom/CapstoneDicoding.git
+cd CapstoneDicoding
 
 # Install dependencies
 npm install

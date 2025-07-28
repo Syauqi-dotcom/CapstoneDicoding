@@ -1,12 +1,13 @@
 import React from 'react';
+import './Chat.css';
 
 const Chat = () => {
   return (
-    <div className="chat-page" style={{ padding: '2rem', textAlign: 'center', color: 'black' }}>
-      <h1>Chat</h1>
-      <p>Platform cek BMI, konsultasi, dan tips kesehatan.</p>
+    <div className="home-page" style={{ padding: '2rem', textAlign: 'center', color: 'black'  }}>
+      <h1>Chat dengan Dokter</h1>
+      <p> Fitur chat dengan dokter akan segera hadir. Anda dapat berkonsultasi langsung dengan dokter profesional untuk mendapatkan saran kesehatan yang tepat. </p>
     </div>
   );
 };
 
-export default Chat;
+export default Chat; 
